@@ -1,0 +1,28 @@
+{
+  "name": "egycsipet",
+  "version": "1.0.0",
+  "description": "Personal wedding website",
+  "main": "index.js",
+  "scripts": {
+    "test": "csipet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sandraszenti/egycsipet.git"
+  },
+  "keywords": [
+    "wedding",
+    "template"
+  ],
+  "author": "Sandra Szenti",
+  "license": "CC",
+  "bugs": {
+    "url": "https://github.com/sandraszenti/egycsipet/issues"
+  },
+  "homepage": "https://github.com/sandraszenti/egycsipet",
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0"
+  }
+}
