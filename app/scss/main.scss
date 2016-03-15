@@ -56,6 +56,20 @@ h1, h2, h3 {
 			color: #88C9B3;
 		}
 	}
+
+	&--gift {
+		padding-bottom: 4.5em;
+	}
+
+	&--rsvp {
+		.title {
+			font-size: 64px;
+			color: #fffff2;
+			text-align: center;
+			background: #FFB2A8;
+			padding-top: 1em;
+		}
+	}
 }
 
 .title {

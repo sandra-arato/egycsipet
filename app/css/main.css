@@ -99,6 +99,14 @@ h1, h2, h3 {
     padding-bottom: 6em; }
     .section--hotel .title {
       color: #88C9B3; }
+  .section--gift {
+    padding-bottom: 4.5em; }
+  .section--rsvp .title {
+    font-size: 64px;
+    color: #fffff2;
+    text-align: center;
+    background: #FFB2A8;
+    padding-top: 1em; }
 
 .title {
   font-size: 72px; }
