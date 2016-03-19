@@ -1,0 +1,301 @@
+@import "./reset";
+@import "./shake";
+
+$text-dark: #484948;
+$text-light: #fffff2;
+$color-white: #ffffff;
+$color-grass: #93a964;
+$color-sun: #f9b017;
+$color-aqua: #88c9b3;
+$color-heart: #ffb2a8;
+
+
+body {
+	font-family: 'Roboto Slab', monotype;
+	color: $text-dark;
+}
+
+h1, h2, h3 {
+	font-family: 'Learning Curve', sans-serif;
+	color: $color-grass;
+}
+
+.pre {
+	white-space: pre;
+	line-height: 1.6;
+}
+
+.section {
+	text-align: center;
+
+	&--map	{
+		position: relative;
+		background-image: url('../img/europe.png');
+		background-size: cover;
+		display: block;
+		min-height: 320px;
+		height: 85vh;
+		left: 0;
+		right: 0;
+		z-index: 1;
+	}
+
+	&--arrival {
+		color: $color-white;
+		background-color: $color-grass;
+		background-image: url('../img/csipet.png');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		padding: 2.4em 0;
+
+		.title {
+			color: $color-white;
+		}
+	}
+
+	&--program, &--hotel {
+		.title {
+			padding: 0.75em 0 0.35em 0;
+		}
+	}
+
+	&--hotel {
+		padding-bottom: 3.4em;
+		
+		.title {
+			color: $color-aqua;
+		}
+	}
+
+	&--gift {
+		padding-bottom: 4.5em;
+
+		.title {
+			padding-bottom: 0.3em;
+		}
+	}
+
+	&--rsvp {
+		background: $color-heart;
+		color: $text-light;
+		padding-bottom: 3em;
+
+		.title {
+			font-size: 64px;
+			color: inherit;
+			text-align: center;
+			padding-top: 1em;
+		}
+	}
+}
+
+.title {
+	font-size: 72px;
+
+
+	&--main {
+		position: relative;
+		padding-top: 30vh;
+		vertical-align: middle;
+	}
+
+	&__wrapper {
+		display: flex;
+		margin: 0 auto;
+		background-image: url('../img/header.svg');
+		background-repeat: no-repeat;
+		background-size: contain;
+		width: 7.6em;
+		max-width: 90%;
+		height: 2.8em;
+		color: $text-dark;
+		justify-content: space-between;
+		line-height: 2.4em;
+
+		span {
+			padding: 0 0.65em;
+		}
+
+		:last-child {
+			padding-right: 1.2em;
+		}
+	}
+
+	&--sub {
+		font-family: 'Learning Curve', sans-serif;
+		display: inline-block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+
+		&:after {
+			top: 100%;
+			left: 50%;
+			border: solid transparent;
+			content: "";
+			height: 0;
+			width: 0;
+			position: absolute;
+			border-color: transparent;
+			border-top-color: lighten($color-aqua, 23%);
+			border-width: 1.2rem;
+			margin-left: -1.2rem;
+		}
+
+		span {
+			display: inline-block;
+			margin: 0 auto;
+			padding: 0.8em 1.2em;
+			background: rgba(255, 255, 242, 0.72);
+			font-size: 28px;
+		}
+
+
+	}
+
+	&--date {
+		display: inline-block;
+		width: auto;
+		color: $color-sun;
+		font-size: 3.4em;
+		margin: 0 auto;
+	}
+
+}
+
+.arrival, .program {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 40em;
+	margin: 2.4em auto 3.4em auto;
+	padding: 0 1.4em;
+	line-height: 1.5em;
+}
+
+.program {
+	text-align: left;
+	width: auto;
+	margin: 3.4em auto 6.4em auto;
+	border-collapse: collapse;
+
+	&__title {
+		display: block;
+		font-family: 'Learning Curve', sans-serif;
+		font-weight: bold;
+		font-size: 2.4em;
+		color: $color-sun;
+	}
+
+	li {
+		display: inline-block;
+		line-height: 1.2em;
+	}
+
+	&__row {
+		line-height: 3.4em;
+		border-bottom: 1px dashed $color-sun;
+
+		> :first-child {
+			box-sizing: border-box;
+			width: 50%;
+			min-width: 10.5em;
+			max-width: 90%;
+			text-transform: uppercase;
+			font-weight: bold;
+			letter-spacing: 0.07em;
+			padding-left: 0.85em;
+		}
+	}
+}
+
+.suggest {
+	display: inline-block;
+	padding: 0.6em 1.2em;
+	max-width: 20em;
+
+	&__title {
+		font-family: 'Roboto Slab', monotype;
+		color: $color-aqua;
+		font-weight: bold;
+		margin: 1.6em 0;
+	}
+
+	&__link {
+		display: inline-block;
+		margin: 1.35em 0 2.4em 0;
+		background: $color-sun;
+		border-radius: 3px;
+		color: #ffffff;
+		padding: 0.6em 0.85em;
+
+		&:hover, &:focus {
+			background: darken($color-sun, 8%);
+		}
+	}
+}
+
+.contact {
+	box-sizing: border-box;
+	margin: 5em auto 2em auto;
+	width: 100%;
+	padding: 0 2em;
+}
+
+.img {
+	width: 160px;
+	height: 160px;
+	border-radius: 80px;
+}
+
+.icon {
+	width: 2.4rem;
+	fill: $color-grass;
+	margin: 2.4rem 1.2rem 0.8rem 1.2rem;
+
+	&:hover {
+		@include do-shake('shake-little', 2, 2, 1); 
+	}
+}
+
+.link {
+	text-decoration: none;
+	color: $text-dark;
+
+	&:hover, &:focus {
+		outline: 0;
+		font-weight: 500;
+		text-decoration: underline;
+	}
+}
+
+.typeform-share.button {
+	@extend .suggest-link;
+	margin-top: 2.6em;
+	font-size: 28px;
+	background-color: $color-aqua;
+	transition: 0.2s background-color ease-out;
+
+	&:hover, 
+	&:focus {
+		background-color: darken($color-aqua, 8%);
+	}
+}
+
+
+@media (max-width: 640px) {
+	.title {
+		font-size: 62px;
+
+		&--main {
+			font-size: 34px;
+			padding-top: 2em;
+		}
+
+		&__wrapper {
+			width: 8.4em;
+			max-width: 76%;
+		}
+	}
+}
