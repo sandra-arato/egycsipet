@@ -10,6 +10,14 @@ $color-aqua: #88c9b3;
 $color-heart: #ffb2a8;
 
 
+@font-face {
+	font-family: 'Learning Curve';
+	src: url('../fonts/learningcurve_tt.eot');
+	src: url('../fonts/learningcurve_tt.woff') format('woff'), url('../fonts/learningcurve_tt.ttf') format('truetype'), url('../fonts/learningcurve_tt.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 body {
 	font-family: 'Roboto Slab', monotype;
 	color: $text-dark;
