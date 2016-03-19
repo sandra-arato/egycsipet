@@ -60,6 +60,20 @@ img {
   height: auto;
   border: 0; }
 
+.icon:hover {
+  display: inline-block;
+  transform-origin: center center; }
+
+.shake-freeze,
+.shake-constant.shake-constant--hover:hover,
+.shake-trigger:hover .shake-constant.shake-constant--hover {
+  animation-play-state: paused; }
+
+.shake-freeze:hover,
+.shake-trigger:hover .shake-freeze, .icon:hover,
+.shake-trigger:hover .icon:hover {
+  animation-play-state: running; }
+
 @font-face {
   font-family: 'Learning Curve';
   src: url("../fonts/learningcurve_tt.eot");
@@ -73,10 +87,11 @@ body {
 
 h1, h2, h3 {
   font-family: 'Learning Curve', sans-serif;
-  color: #93A964; }
+  color: #93a964; }
 
 .pre {
-  white-space: pre; }
+  white-space: pre;
+  line-height: 1.6; }
 
 .section {
   text-align: center; }
@@ -91,34 +106,41 @@ h1, h2, h3 {
     right: 0;
     z-index: 1; }
   .section--arrival {
-    color: #fff;
-    background-color: #93A964;
+    color: #ffffff;
+    background-color: #93a964;
     background-image: url("../img/csipet.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding: 2.4em 0; }
     .section--arrival .title {
-      color: #fff; }
+      color: #ffffff; }
   .section--program .title, .section--hotel .title {
     padding: 0.75em 0 0.35em 0; }
   .section--hotel {
-    padding-bottom: 6em; }
+    padding-bottom: 3.4em; }
     .section--hotel .title {
-      color: #88C9B3; }
+      color: #88c9b3; }
   .section--gift {
     padding-bottom: 4.5em; }
-  .section--rsvp .title {
-    font-size: 64px;
+    .section--gift .title {
+      padding-bottom: 0.3em; }
+  .section--rsvp {
+    background: #ffb2a8;
     color: #fffff2;
-    text-align: center;
-    background: #FFB2A8;
-    padding-top: 1em; }
+    padding-bottom: 3em; }
+    .section--rsvp .title {
+      font-size: 64px;
+      color: inherit;
+      text-align: center;
+      padding-top: 1em; }
 
 .title {
   font-size: 72px; }
   .title--main {
-    padding-top: 30vh; }
+    position: relative;
+    padding-top: 30vh;
+    vertical-align: middle; }
   .title__wrapper {
     display: flex;
     margin: 0 auto;
@@ -136,15 +158,34 @@ h1, h2, h3 {
     .title__wrapper :last-child {
       padding-right: 1.2em; }
   .title--sub {
+    font-family: 'Learning Curve', sans-serif;
+    display: inline-block;
     position: absolute;
-    width: 100%;
-    text-align: center;
-    bottom: 2.3em;
-    font-size: 1.2em; }
+    bottom: 0;
+    left: 0;
+    width: 100%; }
+    .title--sub:after {
+      top: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: "";
+      height: 0;
+      width: 0;
+      position: absolute;
+      border-color: transparent;
+      border-top-color: #d9eee7;
+      border-width: 1.2rem;
+      margin-left: -1.2rem; }
+    .title--sub span {
+      display: inline-block;
+      margin: 0 auto;
+      padding: 0.8em 1.2em;
+      background: rgba(255, 255, 242, 0.72);
+      font-size: 28px; }
   .title--date {
     display: inline-block;
     width: auto;
-    color: #F9B017;
+    color: #f9b017;
     font-size: 3.4em;
     margin: 0 auto; }
 
@@ -166,13 +207,13 @@ h1, h2, h3 {
     font-family: 'Learning Curve', sans-serif;
     font-weight: bold;
     font-size: 2.4em;
-    color: #F9B017; }
+    color: #f9b017; }
   .program li {
     display: inline-block;
     line-height: 1.2em; }
   .program__row {
     line-height: 3.4em;
-    border-bottom: 1px dashed #F9B017; }
+    border-bottom: 1px dashed #f9b017; }
     .program__row > :first-child {
       box-sizing: border-box;
       width: 50%;
@@ -189,24 +230,165 @@ h1, h2, h3 {
   max-width: 20em; }
   .suggest__title {
     font-family: 'Roboto Slab', monotype;
-    color: #88C9B3;
+    color: #88c9b3;
     font-weight: bold;
     margin: 1.6em 0; }
   .suggest__link {
     display: inline-block;
-    margin-top: 1.35em;
-    background: #F9B017;
+    margin: 1.35em 0 2.4em 0;
+    background: #f9b017;
     border-radius: 3px;
     color: #ffffff;
     padding: 0.6em 0.85em; }
     .suggest__link:hover, .suggest__link:focus {
       background: #e19a06; }
 
+.contact {
+  box-sizing: border-box;
+  margin: 5em auto 2em auto;
+  width: 100%;
+  padding: 0 2em; }
+
 .img {
   width: 160px;
   height: 160px;
   border-radius: 80px; }
 
-@media (max-width: 480px) {
+.icon {
+  width: 2.4rem;
+  fill: #93a964;
+  margin: 2.4rem 1.2rem 0.8rem 1.2rem; }
+
+@keyframes shake-little {
+  2% {
+    transform: translate(0px, 1px) rotate(0.5deg); }
+  4% {
+    transform: translate(1px, 1px) rotate(0.5deg); }
+  6% {
+    transform: translate(0px, 1px) rotate(0.5deg); }
+  8% {
+    transform: translate(0px, 0px) rotate(0.5deg); }
+  10% {
+    transform: translate(1px, 1px) rotate(0.5deg); }
+  12% {
+    transform: translate(1px, 1px) rotate(0.5deg); }
+  14% {
+    transform: translate(1px, 0px) rotate(0.5deg); }
+  16% {
+    transform: translate(1px, 0px) rotate(0.5deg); }
+  18% {
+    transform: translate(0px, 0px) rotate(0.5deg); }
+  20% {
+    transform: translate(1px, 1px) rotate(0.5deg); }
+  22% {
+    transform: translate(0px, 0px) rotate(0.5deg); }
+  24% {
+    transform: translate(0px, 1px) rotate(0.5deg); }
+  26% {
+    transform: translate(0px, 1px) rotate(0.5deg); }
+  28% {
+    transform: translate(1px, 1px) rotate(0.5deg); }
+  30% {
+    transform: translate(1px, 1px) rotate(0.5deg); }
+  32% {
+    transform: translate(0px, 1px) rotate(0.5deg); }
+  34% {
+    transform: translate(1px, 1px) rotate(0.5deg); }
+  36% {
+    transform: translate(0px, 0px) rotate(0.5deg); }
+  38% {
+    transform: translate(1px, 1px) rotate(0.5deg); }
+  40% {
+    transform: translate(0px, 0px) rotate(0.5deg); }
+  42% {
+    transform: translate(1px, 0px) rotate(0.5deg); }
+  44% {
+    transform: translate(0px, 1px) rotate(0.5deg); }
+  46% {
+    transform: translate(1px, 1px) rotate(0.5deg); }
+  48% {
+    transform: translate(0px, 0px) rotate(0.5deg); }
+  50% {
+    transform: translate(1px, 0px) rotate(0.5deg); }
+  52% {
+    transform: translate(1px, 1px) rotate(0.5deg); }
+  54% {
+    transform: translate(1px, 1px) rotate(0.5deg); }
+  56% {
+    transform: translate(1px, 0px) rotate(0.5deg); }
+  58% {
+    transform: translate(1px, 1px) rotate(0.5deg); }
+  60% {
+    transform: translate(0px, 0px) rotate(0.5deg); }
+  62% {
+    transform: translate(0px, 1px) rotate(0.5deg); }
+  64% {
+    transform: translate(0px, 0px) rotate(0.5deg); }
+  66% {
+    transform: translate(1px, 0px) rotate(0.5deg); }
+  68% {
+    transform: translate(1px, 0px) rotate(0.5deg); }
+  70% {
+    transform: translate(0px, 1px) rotate(0.5deg); }
+  72% {
+    transform: translate(0px, 1px) rotate(0.5deg); }
+  74% {
+    transform: translate(0px, 0px) rotate(0.5deg); }
+  76% {
+    transform: translate(1px, 0px) rotate(0.5deg); }
+  78% {
+    transform: translate(1px, 1px) rotate(0.5deg); }
+  80% {
+    transform: translate(1px, 1px) rotate(0.5deg); }
+  82% {
+    transform: translate(1px, 0px) rotate(0.5deg); }
+  84% {
+    transform: translate(0px, 0px) rotate(0.5deg); }
+  86% {
+    transform: translate(1px, 1px) rotate(0.5deg); }
+  88% {
+    transform: translate(0px, 0px) rotate(0.5deg); }
+  90% {
+    transform: translate(1px, 0px) rotate(0.5deg); }
+  92% {
+    transform: translate(1px, 0px) rotate(0.5deg); }
+  94% {
+    transform: translate(1px, 1px) rotate(0.5deg); }
+  96% {
+    transform: translate(0px, 1px) rotate(0.5deg); }
+  98% {
+    transform: translate(0px, 1px) rotate(0.5deg); }
+  0%, 100% {
+    transform: translate(0, 0) rotate(0); } }
+  .icon:hover:hover,
+  .shake-trigger:hover .icon:hover, .icon:hover.shake-freeze, .icon:hover.shake-constant {
+    animation-name: shake-little;
+    animation-duration: 100ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite; }
+
+.link {
+  text-decoration: none;
+  color: #484948; }
+  .link:hover, .link:focus {
+    outline: 0;
+    font-weight: 500;
+    text-decoration: underline; }
+
+.typeform-share.button {
+  margin-top: 2.6em;
+  font-size: 28px;
+  background-color: #88c9b3;
+  transition: 0.2s background-color ease-out; }
+  .typeform-share.button:hover, .typeform-share.button:focus {
+    background-color: #6cbca1; }
+
+@media (max-width: 640px) {
   .title {
-    font-size: 64px; } }
+    font-size: 62px; }
+    .title--main {
+      font-size: 34px;
+      padding-top: 2em; }
+    .title__wrapper {
+      width: 8.4em;
+      max-width: 76%; } }
