@@ -201,6 +201,7 @@ h1, h2, h3 {
 		width: 100%;
 		height: 110px;
 		overflow: hidden;
+		cursor: pointer;
 	}
 
 	&__img {
@@ -221,6 +222,18 @@ h1, h2, h3 {
 		&--london {
 			left: -26%;
 		}
+
+		&--paris {
+			left: -24%;
+		}
+
+		&--stlucia {
+			left: -26%;
+		}
+
+		&--sydney {
+			left: -20%;
+		}
 	}
 
 	&__desc {
@@ -235,8 +248,8 @@ h1, h2, h3 {
 	}
 
 	&--barcelona {
-		top: 10px;
-		left: 12px;
+		top: 16px;
+		left: 3%;
 		transform: rotate(2.5deg);
 
 		&:hover,
@@ -246,8 +259,8 @@ h1, h2, h3 {
 	}
 
 	&--gili {
-		top: 180px;
-		left: 10px;
+		top: 192px;
+		left: 3.2%;
 		transform: rotate(-1.5deg);
 
 		&:hover,
@@ -257,8 +270,8 @@ h1, h2, h3 {
 	}
 
 	&--london {
-		top: 360px;
-		left: 20px;
+		top: 370px;
+		left: 3.6%;
 		transform: rotate(-5.5deg);
 
 		&:hover,
@@ -267,6 +280,38 @@ h1, h2, h3 {
 		}
 	}
 
+	&--paris {
+		top: 22px;
+		right: 3.2%;
+		transform: rotate(-2.5deg);
+
+		&:hover,
+		&:focus {
+			transform: rotate(-2deg);
+		}
+	}
+
+	&--stlucia {
+		top: 192px;
+		right: 2.9%;
+		transform: rotate(3.1deg);
+
+		&:hover,
+		&:focus {
+			transform: rotate(2.6deg);
+		}
+	}
+
+	&--sydney {
+		top: 375px;
+		right: 3.6%;
+		transform: rotate(4.8deg);
+
+		&:hover,
+		&:focus {
+			transform: rotate(4.3deg);
+		}
+	}
 
 }
 
@@ -379,12 +424,12 @@ h1, h2, h3 {
 	@extend .suggest-link;
 	margin-top: 2.6em;
 	font-size: 28px;
-	background-color: $color-aqua;
+	background-color: darken($color-aqua, 8%);
 	transition: 0.2s background-color ease-out;
 
 	&:hover, 
 	&:focus {
-		background-color: darken($color-aqua, 8%);
+		background-color: darken($color-aqua, 14%);
 	}
 }
 
@@ -392,7 +437,7 @@ h1, h2, h3 {
 	font-size: 10px;
 	background: $color-heart;
 	padding: 1.2rem;
-	color: lighten($text-light, 8%);
+	color: lighten($color-heart, 8%);
 	text-align: center;
 
 	&:hover,
@@ -437,29 +482,38 @@ h1, h2, h3 {
 
 	.photos {
 		position: relative;
+		max-width: 80%;
+		margin: 0 auto;
 	}
 
 	.photo {
 		position: absolute;
-		&--barcelona {
-			top: 14.3rem;
-			left: 40%;
+		width: 160px;
+		height: 190px;
+		box-sizing: border-box;
+		padding: 8px;
+
+		&__wrapper {
+			height: 144px;
 		}
 
-		&--gili {
-			top: 14.3rem;
-			left: 40%;
-		}
-
-		&--london {
-			top: 14.3rem;
-			left: 40%;
-			transform: rotate(2deg);
+		&--barcelona,
+		&--gili,
+		&--london,
+		&--paris,
+		&--stlucia,
+		&--sydney {
+			top: 13.4rem;
+			left: 25%;
 		}
 	}
 }
 
 @media (min-width: 641px) and (max-width: 820px) {
+	.photos {
+		position: relative;
+	}
+
 	.photo {
 		&--gili {
 			top: 10px;
@@ -470,6 +524,23 @@ h1, h2, h3 {
 			top: 7px;
 			left: 34%;
 			transform: rotate(2deg);
+		}
+
+		&--paris {
+			top: 8px;
+			left: 50%;
+		}
+
+		&--stlucia {
+			top: 12px;
+			right: 20%;
+			transform: rotate(3.5deg);
+		}
+
+		&--sydney {
+			top: 14px;
+			right: 5%;
+			transform: rotate(-1.5deg);
 		}
 	}
 }
