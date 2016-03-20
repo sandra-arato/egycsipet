@@ -38,7 +38,7 @@ h1, h2, h3 {
 
 	&--map	{
 		position: relative;
-		background-image: url('../img/europe.png');
+		background-image: url('../img/europe_medium.png');
 		background-size: cover;
 		display: block;
 		min-height: 320px;
@@ -94,6 +94,11 @@ h1, h2, h3 {
 			color: inherit;
 			text-align: center;
 			padding-top: 1em;
+		}
+
+		.contact {
+			max-width: 42rem;
+			line-height: 1.4;
 		}
 	}
 }
@@ -170,6 +175,98 @@ h1, h2, h3 {
 		font-size: 3.4em;
 		margin: 0 auto;
 	}
+
+}
+
+.photos {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 1000;
+}
+
+.photo {
+	display: inline-block;
+	position: absolute;
+	width: 120px;
+	height: 140px;
+	box-sizing: border-box;
+	padding: 5px;
+	background: $color-white;
+	box-shadow: 2px 2px 9px lighten($text-dark, 17%); 
+	transition: 0.3s transform ease-out;
+
+	&__wrapper {
+		position: relative;
+		width: 100%;
+		height: 110px;
+		overflow: hidden;
+	}
+
+	&__img {
+		position: absolute;
+		max-height: 100%;
+		max-width: 200%;
+		-webkit-filter: sepia(0.32) saturate(1.8) contrast(0.8);
+		filter: sepia(0.32) saturate(1.8) contrast(0.8);
+
+		&--barcelona {
+			left: -30%;
+		}
+
+		&--gili {
+			left: -35%;
+		}
+
+		&--london {
+			left: -26%;
+		}
+	}
+
+	&__desc {
+		display: block;
+		margin-top: 0.5rem;
+		margin-left: 0.5em;
+		color: lighten($text-dark, 11%);
+		font-size: 10px;
+		letter-spacing: 0.03rem;
+		text-transform: uppercase;
+
+	}
+
+	&--barcelona {
+		top: 10px;
+		left: 12px;
+		transform: rotate(2.5deg);
+
+		&:hover,
+		&:focus {
+			transform: rotate(2deg);
+		}
+	}
+
+	&--gili {
+		top: 180px;
+		left: 10px;
+		transform: rotate(-1.5deg);
+
+		&:hover,
+		&:focus {
+			transform: rotate(-2deg);
+		}
+	}
+
+	&--london {
+		top: 360px;
+		left: 20px;
+		transform: rotate(-5.5deg);
+
+		&:hover,
+		&:focus {
+			transform: rotate(-5deg);
+		}
+	}
+
 
 }
 
@@ -291,6 +388,37 @@ h1, h2, h3 {
 	}
 }
 
+.footer {
+	font-size: 10px;
+	background: $color-heart;
+	padding: 1.2rem;
+	color: lighten($text-light, 8%);
+	text-align: center;
+
+	&:hover,
+	&:focus {
+		.credits__desc {
+			opacity: 1;
+		}
+	}
+}
+
+.credits {
+	text-transform: uppercase;
+
+	&__desc {
+		margin: 0.8em auto 0 auto;
+		width: 18rem;
+		opacity: 0;
+		transition: 0.4s opacity ease-out;
+		overflow: hidden;
+
+		span {
+			text-transform: none;
+		}
+	}
+}
+
 
 @media (max-width: 640px) {
 	.title {
@@ -306,4 +434,56 @@ h1, h2, h3 {
 			max-width: 76%;
 		}
 	}
+
+	.photos {
+		position: relative;
+	}
+
+	.photo {
+		position: absolute;
+		&--barcelona {
+			top: 14.3rem;
+			left: 40%;
+		}
+
+		&--gili {
+			top: 14.3rem;
+			left: 40%;
+		}
+
+		&--london {
+			top: 14.3rem;
+			left: 40%;
+			transform: rotate(2deg);
+		}
+	}
+}
+
+@media (min-width: 641px) and (max-width: 820px) {
+	.photo {
+		&--gili {
+			top: 10px;
+			left: 18%;
+		}
+
+		&--london {
+			top: 7px;
+			left: 34%;
+			transform: rotate(2deg);
+		}
+	}
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) { 
+  
+	.section--map {
+		background-image: url('../img/europe.png');
+	}
+
 }
