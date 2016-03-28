@@ -106,8 +106,62 @@
 		};
 	};
 
+	var EffectPlayer = function EffectPlayer() {
+		var icons, audios;
+		var that = this;
+		this.init = function() {
+			icons = Array.from(document.querySelectorAll('svg.icon'));
+			audios = Array.from(document.querySelectorAll('audio'));
+
+			for (var item of icons) {
+				item.addEventListener('mouseenter', that.playSound);
+				item.addEventListener('mouseleave', that.stopSound);
+
+				item.addEventListener('touchstart', that.playSound);
+				item.addEventListener('touchend', that.stopSound);
+			}
+		};
+
+		this.playSound = function(e) {
+			e.target.closestSelector = closestSelector;
+			var icon = e.target.closestSelector('icon');
+			if (icon.nextElementSibling.play) {
+				icon.nextElementSibling.play();
+			}
+		}
+
+		this.stopSound = function(e) {
+			e.target.closestSelector = closestSelector;
+			var icon = e.target.closestSelector('icon');
+			if (icon.nextElementSibling.pause) {
+				icon.nextElementSibling.pause();
+			}
+		}
+	};
+
+	var Accordion = function Accordion() {
+		var buttons = Array.from(document.querySelectorAll('.program__accordion'));
+
+		for (var item of buttons) {
+			item.addEventListener('click', function(e) {
+				e.target.closestSelector = closestSelector;
+				var trigger = e.target.closestSelector('program__accordion');
+
+				if (trigger.classList.contains('program__accordion--extended')) {
+					trigger.classList.remove('program__accordion--extended');
+				} else {
+					trigger.classList.add('program__accordion--extended');
+				}
+			});
+		}
+	}
 	// this is for the gallery images
 	var storyTeller = new StoryTeller();
 	storyTeller.init();
 
+	// this is for the icons
+	var travelSounds = new EffectPlayer();
+	travelSounds.init();
+	var program = new Accordion();
+	
 })(window, document);
