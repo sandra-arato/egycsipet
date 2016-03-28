@@ -10,8 +10,7 @@
     <!--[if IE]><link rel="shortcut icon" href="favicon.ico"><![endif]-->
     <link rel="icon" href="favicon.png">
     <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <meta name="HandheldFriendly" content="True">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>    <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/main.css">
     <script>
@@ -19,52 +18,73 @@
       ga('create', 'UA-XXXXXXXXX-1', 'auto');
       ga('send', 'pageview');
     </script>
+    <script src="./js/all.js" async defer></script>
   </head>
   <body>
     <main>
       <aside class="photos">
-        <a class="photo photo--barcelona" href="#">
+        <a class="photo photo--barcelona" href="#bcn" data-location="bcn">
           <div class="photo__wrapper">
             <img class="photo__img photo__img--barcelona" src="./img/barcelona.jpg" alt="Peti és Szandra Montserratban">
           </div>
           <span class="photo__desc">Montserrat</span>
+          <p class="visuallyhidden" id="bcn">
+            2015 őszén Barcelonában éltünk 6 hétig egy lakáscserének köszönhetően. 3 sráccal cseréltünk, és nem csak egy remek kis studiólakást kaptunk ideiglenesen tőlük londoni lakásunkért cserébe, hanem jó barátok is lettünk. A katalán főváros közelében található a festői Montserrat-hegység, melynek tetején szerzetesek őrzik a Fekete Madonnát. Szandra születésnapjának másnapján látogattunk ide először, meglepetésként.
+          </p>
         </a>
 
-        <a class="photo photo--gili" href="#">
+        <a class="photo photo--gili" href="#dps" data-location="dps">
           <div class="photo__wrapper">
             <img class="photo__img photo__img--gili" src="./img/gili.jpg" alt="Peti és Szandra Gili Airen">
           </div>
           <span class="photo__desc">Gili Air</span>
+           <p class="visuallyhidden" id="dps">
+            2014. szeptember végén költöztünk el Ausztráliából, de hogy a hosszú utat kicsit élvezetesebbé tegyük, félbeszakítottuk egy 10 napos indonéz pihenéssel Balin és Gili Air-en. Gili Air méretben a középső a három Gili-sziget közül, melyek Bali és Lombok között rejtőznek. A szigetet még alig érintette a turizmus, csak egy nagyobb szálló volt, kiépített utak helyett homokfövenyen közlekedtek a lovas kocsik.
+          </p>
         </a>
 
-        <a class="photo photo--london" href="#">
+        <a class="photo photo--london" href="#ldn" data-location="ldn">
           <div class="photo__wrapper">
             <img class="photo__img photo__img--london" src="./img/london.jpg" alt="Peti és Szandra Londonban">
           </div>
           <span class="photo__desc">London</span>
+          <p class="visuallyhidden" id="ldn">
+            Az Egyesült Államokbeli kalandunk után döntöttünk úgy, hogy Londonban töltjük a következő pár évet. Itt kezdett el Szandra fejlesztőként dolgozni, és itt béreltünk először közös lakást. Peti örült a visszatérésnek, mert nem csak a régi barátokkal, hanem tesóival is többet tudott találkozni. Mindketten sok barátot, élményt, kellemes családi pillanatokat szereztünk, és a végére Szandra is megszerette a ködös Albiont.
+          </p>
         </a>
 
-        <a class="photo photo--paris" href="#">
+        <a class="photo photo--paris" href="#cdg" data-location="cdg">
           <div class="photo__wrapper">
             <img class="photo__img photo__img--paris" src="./img/paris.jpg" alt="Peti és Szandra Párizsban">
           </div>
           <span class="photo__desc">Párizs</span>
+          <p class="visuallyhidden" id="cdg">
+            Épp csak átutaztunk Párizson, útban Barcelona felé, ugyanis gyorsvonatoztunk Spanyolországba. Londonból egy reggeli járattal 10 óra körül már Párizsban kávéztunk, majd egy pár órás városnéző séta után robogtunk tovább délre. Ugyan Petit nem ragadtaták el a franciák, Szandra nagyon örült, hogy megmutathatta neki egyik kedvenc városának központját.
+          </p>
         </a>
 
-        <a class="photo photo--stlucia" href="#">
+        <a class="photo photo--stlucia" href="#uvf" data-location="uvf">
           <div class="photo__wrapper">
             <img class="photo__img photo__img--stlucia" src="./img/stlucia.jpg" alt="Peti és Szandra St. Lucian">
           </div>
           <span class="photo__desc">St. Lucia</span>
+           <p class="visuallyhidden" id="uvf">
+            2015 telén hátizsákkal vágtunk neki a karib térségnek, és egy hónap alatt 9 szigetet fedeztünk fel. Ez a kép St. Lucia-n, az utolsó szigeten készült. Az egy hónap alatt rengeteg élménnyel töltödtünk fel: túráztunk eldugott öbölhöz Antiguán, fotózkodtunk épp leszálló repülővel St. Maartenon, és úsztunk Curaçao-szinű vízben Curaçaon. Egy életreszóló élményt kaptunk, és a végére csak azt kívántuk, bár ne kéne abbahagyni az utazást.
+          </p>
         </a>
 
-        <a class="photo photo--sydney" href="#">
+        <a class="photo photo--sydney" href="#syd" data-location="syd">
           <div class="photo__wrapper">
             <img class="photo__img photo__img--sydney" src="./img/sydney.jpg" alt="Peti és Szandra Sydneyben">
           </div>
           <span class="photo__desc">Sydney</span>
+          <p class="visuallyhidden" id="syd">
+            2013-ban Peti utazásai során Sydneybe érkezett azzal a szándékkal, hogy 3 hónap alatt bejárja Ausztráliát hátizsákkal. A terv egy hét alatt a dugába dőlt, és egy hónap után elhatároztuk, hogy kiprobáljuk, milyen együtt az élet. Fél évig éltünk Sydneyben, ezalatt sok környékbeli és szomszédos állambeli helyet bejártunk. Pár hónap után azonban Petinek már máshova húzott a szíve, így összecsomagoltuk életünket, és útrakeltünk. 
+          </p>
         </a>
-
+        <section class="photo__modal photo__modal--hidden" id="modal">
+          <p></p>
+        </section>
       </aside>
       <article>
         

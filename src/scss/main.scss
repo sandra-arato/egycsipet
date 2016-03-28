@@ -3,6 +3,7 @@
 
 $text-dark: #484948;
 $text-light: #fffff2;
+$border-light: #d6d4cf;
 $color-white: #ffffff;
 $color-grass: #93a964;
 $color-sun: #f9b017;
@@ -21,11 +22,25 @@ $color-heart: #ffb2a8;
 body {
 	font-family: 'Roboto Slab', monotype;
 	color: $text-dark;
+	height: 100%;
+
+	&.overlay {
+		max-height: 100%;
+		overflow: hidden;
+	}
 }
 
 h1, h2, h3 {
 	font-family: 'Learning Curve', sans-serif;
 	color: $color-grass;
+}
+
+.visuallyhidden {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	opacity: 0;
+	visibility: hidden;
 }
 
 .pre {
@@ -70,7 +85,7 @@ h1, h2, h3 {
 
 	&--hotel {
 		padding-bottom: 3.4em;
-		
+
 		.title {
 			color: $color-aqua;
 		}
@@ -104,12 +119,12 @@ h1, h2, h3 {
 }
 
 .title {
-	font-size: 72px;
-
+	font-size: 62px;
 
 	&--main {
 		position: relative;
-		padding-top: 30vh;
+		font-size: 34px;
+		padding-top: 2em;
 		vertical-align: middle;
 	}
 
@@ -119,8 +134,8 @@ h1, h2, h3 {
 		background-image: url('../img/header.svg');
 		background-repeat: no-repeat;
 		background-size: contain;
-		width: 7.6em;
-		max-width: 90%;
+		width: 8.4em;
+		max-width: 76%;
 		height: 2.8em;
 		color: $text-dark;
 		justify-content: space-between;
@@ -164,8 +179,6 @@ h1, h2, h3 {
 			background: rgba(255, 255, 242, 0.72);
 			font-size: 28px;
 		}
-
-
 	}
 
 	&--date {
@@ -179,27 +192,80 @@ h1, h2, h3 {
 }
 
 .photos {
-	position: fixed;
-	width: 100%;
+	position: relative;
 	top: 0;
 	z-index: 1000;
+	background-color: rgba(243, 240, 232, 0);
+	transition: 0.24s background-color ease-out;
+
+	&--open {
+		min-height: 100%;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		background-color: rgba(243, 240, 232, 0.8);
+	}
 }
 
 .photo {
 	display: inline-block;
 	position: absolute;
-	width: 120px;
-	height: 140px;
+	width: 160px;
+	height: 190px;
 	box-sizing: border-box;
-	padding: 5px;
+	padding: 8px;
 	background: $color-white;
-	box-shadow: 2px 2px 9px lighten($text-dark, 17%); 
+	box-shadow: 2px 2px 9px lighten($text-dark, 23%);
+	transform: translateX(calc(50vw - 50%)) translateY(32.5vh);
 	transition: 0.3s transform ease-out;
+	overflow: hidden;
+	z-index: 1500;
+
+	&__modal {
+		display: none;
+		position: relative;
+		box-sizing: border-box;
+		top: 100px;
+		box-sizing: border-box;
+		padding: 2rem 2.4rem;
+		font-weight: lighter;
+		background: $color-white;
+		max-width: 0;
+		margin: 3rem auto;
+		line-height: 1.6rem;
+		min-height: 6rem;
+		opacity: 1;
+		border-bottom: 2px solid $border-light;
+		transition: 0.4s opacity ease-out;
+		z-index: 1200;
+
+		&--hidden {
+			opacity: 0;
+			visibility: hidden;
+			margin: 0;
+			padding: 0;
+			line-height: 0;
+			min-height: 0;
+			border-bottom: none;
+		}
+
+		p {
+			opacity: 1;
+			transition: 0.2s opacity ease-out;
+
+			&.hide {
+				opacity: 0;
+			}
+		}
+	}
 
 	&__wrapper {
 		position: relative;
 		width: 100%;
-		height: 110px;
+		height: 144px;
 		overflow: hidden;
 		cursor: pointer;
 	}
@@ -208,6 +274,7 @@ h1, h2, h3 {
 		position: absolute;
 		max-height: 100%;
 		max-width: 200%;
+		margin: 0 auto;
 		-webkit-filter: sepia(0.32) saturate(1.8) contrast(0.8);
 		filter: sepia(0.32) saturate(1.8) contrast(0.8);
 
@@ -247,70 +314,39 @@ h1, h2, h3 {
 
 	}
 
-	&--barcelona {
-		top: 16px;
-		left: 3%;
-		transform: rotate(2.5deg);
+	@mixin translateCenter($deg) {
+		-webkit-transform: translateX(calc(50vw - 50%)) translateY(32.5vh) rotate($deg);
+		transform: translateX(calc(50vw - 50%)) translateY(32.5vh) rotate($deg);
 
 		&:hover,
 		&:focus {
-			transform: rotate(2deg);
+			transform: translateX(calc(50vw - 50%)) translateY(32.5vh) rotate(#{$deg - 1.35deg});
 		}
+
+	}
+
+	&--barcelona {
+		@include  translateCenter(2.5deg);
 	}
 
 	&--gili {
-		top: 192px;
-		left: 3.2%;
-		transform: rotate(-1.5deg);
-
-		&:hover,
-		&:focus {
-			transform: rotate(-2deg);
-		}
+		@include  translateCenter(-1.5deg);
 	}
 
 	&--london {
-		top: 370px;
-		left: 3.6%;
-		transform: rotate(-5.5deg);
-
-		&:hover,
-		&:focus {
-			transform: rotate(-5deg);
-		}
+		@include  translateCenter(-5.5deg);
 	}
 
 	&--paris {
-		top: 22px;
-		right: 3.2%;
-		transform: rotate(-2.5deg);
-
-		&:hover,
-		&:focus {
-			transform: rotate(-2deg);
-		}
+		@include  translateCenter(-2.5deg);
 	}
 
 	&--stlucia {
-		top: 192px;
-		right: 2.9%;
-		transform: rotate(3.1deg);
-
-		&:hover,
-		&:focus {
-			transform: rotate(2.6deg);
-		}
+		@include  translateCenter(2.7deg);
 	}
 
 	&--sydney {
-		top: 375px;
-		right: 3.6%;
-		transform: rotate(4.8deg);
-
-		&:hover,
-		&:focus {
-			transform: rotate(4.3deg);
-		}
+		@include  translateCenter(3.8deg);
 	}
 
 }
@@ -405,7 +441,7 @@ h1, h2, h3 {
 	margin: 2.4rem 1.2rem 0.8rem 1.2rem;
 
 	&:hover {
-		@include do-shake('shake-little', 2, 2, 1); 
+		@include do-shake('shake-little', 2, 2, 1);
 	}
 }
 
@@ -427,7 +463,7 @@ h1, h2, h3 {
 	background-color: darken($color-aqua, 8%);
 	transition: 0.2s background-color ease-out;
 
-	&:hover, 
+	&:hover,
 	&:focus {
 		background-color: darken($color-aqua, 14%);
 	}
@@ -465,82 +501,194 @@ h1, h2, h3 {
 }
 
 
-@media (max-width: 640px) {
+@media (min-width: 640px) {
 	.title {
-		font-size: 62px;
+		font-size: 72px;
 
 		&--main {
-			font-size: 34px;
-			padding-top: 2em;
+			font-size: 72px;
+			padding-top: 30vh;
 		}
 
 		&__wrapper {
-			width: 8.4em;
-			max-width: 76%;
+			width: 7.6em;
+			max-width: 90%;
 		}
 	}
 
-	.photos {
-		position: relative;
-		max-width: 80%;
-		margin: 0 auto;
-	}
-
-	.photo {
-		position: absolute;
-		width: 160px;
-		height: 190px;
-		box-sizing: border-box;
-		padding: 8px;
-
-		&__wrapper {
-			height: 144px;
-		}
-
-		&--barcelona,
-		&--gili,
-		&--london,
-		&--paris,
-		&--stlucia,
-		&--sydney {
-			top: 13.4rem;
-			left: 25%;
-		}
+	.photo__modal {
+		display: block;
 	}
 }
 
 @media (min-width: 641px) and (max-width: 820px) {
-	.photos {
-		position: relative;
+	@mixin translateTop($x, $deg) {
+		-webkit-transform: translateX($x) translateY(14px) rotate($deg);
+		transform: translateX($x) translateY(14px) rotate($deg);
+
+		&:hover,
+		&:focus {
+			transform: translateX($x) translateY(14px) rotate(#{$deg - 1.35deg});
+		}
+	}
+	@mixin translateSink($x, $deg) {
+		-webkit-transform: translateX($x) translateY(14vw) rotate($deg);
+		transform: translateX($x) translateY(14vw) rotate($deg);
+
+		&:hover,
+		&:focus {
+			transform: translateX($x) translateY(14vw) rotate(#{$deg - 1.35deg});
+		}
 	}
 
 	.photo {
+		$block: &;
+
+		width: 120px;
+		height: 140px;
+		padding: 5px;
+		// transition: 0.3s transform ease-out, 0.16s width ease-in, 0.16s height ease-in;
+
+		&__wrapper {
+			height: 110px;
+		}
+
+		&__modal {
+			display: block;
+			max-width: 70%;
+			top: 180px;
+		}
+
+		// &.show {
+		// 	width: 150px;
+		// 	height: 170px;
+		//
+		// 	#{$block}__wrapper {
+		// 		height: 140px;
+		// 	}
+		// }
+
+		&--barcelona {
+			@include translateTop(2vw, 2.5deg);
+
+			&.show {
+				z-index: 1700;
+				@include translateSink(2vw, 2.5deg);
+			}
+		}
+
 		&--gili {
-			top: 10px;
-			left: 18%;
+			@include translateTop(16vw, -1.5deg);
+
+			&.show {
+				z-index: 1700;
+				@include translateSink(16vw, -1.5deg);
+			}
 		}
 
 		&--london {
-			top: 7px;
-			left: 34%;
-			transform: rotate(2deg);
+			@include translateTop(31vw, -5.5deg);
+
+			&.show {
+				z-index: 1700;
+				@include translateSink(31vw, -5.5deg);
+			}
 		}
 
 		&--paris {
-			top: 8px;
-			left: 50%;
+			@include translateTop(47vw, -2.5deg);
+
+			&.show {
+				z-index: 1700;
+				@include translateSink(47vw, -2.5deg);
+			}
 		}
 
 		&--stlucia {
-			top: 12px;
-			right: 20%;
-			transform: rotate(3.5deg);
+			@include translateTop(62vw, 2.7deg);
+
+			&.show {
+				z-index: 1700;
+				@include translateSink(62vw, 2.7deg);
+			}
 		}
 
 		&--sydney {
-			top: 14px;
-			right: 5%;
-			transform: rotate(-1.5deg);
+			@include translateTop(78vw, 3.8deg);
+
+			&.show {
+				z-index: 1700;
+				@include translateSink(78vw, 3.8deg);
+			}
+		}
+	}
+}
+
+@media (min-width: 821px) {
+	@mixin translate($x, $y, $deg) {
+		-webkit-transform: translateX($x) translateY($y) rotate($deg);
+		transform: translateX($x) translateY($y) rotate($deg);
+
+		&:hover,
+		&:focus {
+			transform: translateX($x) translateY($y) rotate(#{$deg - 1.35deg});
+		}
+	}
+	.photo {
+		width: 120px;
+		height: 140px;
+		padding: 5px;
+
+		&__wrapper {
+			height: 110px;
+		}
+
+		&__modal {
+			display: block;
+			max-width: 58%;
+			top: 20vh;
+		}
+
+		&--barcelona {
+			@include translate(2.5vw, 13px, 2.5deg);
+			&.show {
+				@include translate(15vw, 24px, 2.5deg);
+			}
+		}
+
+		&--gili {
+			@include translate(1.7vw, 179px, -1.5deg);
+			&.show {
+				@include translate(6.8vw, 186px, -3deg);
+			}
+		}
+
+		&--london {
+			@include translate(2.1vw, 360px, -5.5deg);
+			&.show {
+				@include translate(9.6vw, 337px, -5.5deg);
+			}
+		}
+
+		&--paris {
+			@include translate(calc(95vw - 90%), 22px, -2.5deg);
+			&.show {
+				@include translate(calc(95vw - 180%), 40px, -2.5deg);
+			}
+		}
+
+		&--stlucia {
+			@include translate(calc(95vw - 90%), 194px, 1.7deg);
+			&.show {
+				@include translate(calc(95vw - 140%), 210px, 1.7deg);
+			}
+		}
+
+		&--sydney {
+			@include translate(calc(95vw - 100%), 375px, 5.6deg);
+			&.show {
+				@include translate(calc(95vw - 170%), 390px, 5.6deg);
+			}
 		}
 	}
 }
@@ -551,8 +699,8 @@ only screen and (   min--moz-device-pixel-ratio: 2),
 only screen and (     -o-min-device-pixel-ratio: 2/1),
 only screen and (        min-device-pixel-ratio: 2),
 only screen and (                min-resolution: 192dpi),
-only screen and (                min-resolution: 2dppx) { 
-  
+only screen and (                min-resolution: 2dppx) {
+
 	.section--map {
 		background-image: url('../img/europe.png');
 	}
