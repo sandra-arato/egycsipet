@@ -61,7 +61,7 @@ h1, h2, h3 {
 		background-size: cover;
 		display: block;
 		min-height: 320px;
-		height: 85vh;
+		height: 500px;
 		left: 0;
 		right: 0;
 		z-index: 1;
@@ -599,6 +599,7 @@ h1, h2, h3 {
 	}
 
 	.section--map {
+		height: 85vh;
 		background-image: url('../img/europe_medium.png');
 	}
 }
