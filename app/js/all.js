@@ -20,12 +20,18 @@
 			openCls = 'photos--open';
 			hiddenCls = 'photo__modal--hidden';
 
-			for (var item of photos) {
-				item.addEventListener('click', that.clickHandler);
+			var mql = window.msMatchMedia ? window.msMatchMedia('(min-width: 641px)') : window.matchMedia('(min-width: 641px)');
+
+			if (mql.matches) {
+				console.log('click');
+				for (var item of photos) {
+					item.addEventListener('click', that.clickHandler);
+				}
 			}
 		}
 
 		this.clickHandler = function(e) {
+			console.log('click it');
 			e.preventDefault();
 			e.target.closestSelector = closestSelector;
 			var element = e.target.closestSelector('photo');
@@ -85,6 +91,7 @@
 		};
 
 		this.highlightPhoto = function(e) {
+			e.target.closestSelector = closestSelector;
 			var photo = e.target.closestSelector('photo');
 
 			if (photo.classList.contains('show')) {
@@ -163,5 +170,5 @@
 	var travelSounds = new EffectPlayer();
 	travelSounds.init();
 	var program = new Accordion();
-	
+
 })(window, document);

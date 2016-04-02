@@ -15,7 +15,7 @@ var cleanCSS = require('gulp-clean-css');
 gulp.task('serve', ['sass', 'js'], function() {
 
     browserSync.init({
-        server: "./src"
+        server: "./app"
     });
 
     gulp.watch("src/img/*", ['images']);
