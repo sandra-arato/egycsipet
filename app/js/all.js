@@ -23,7 +23,6 @@
 			var mql = window.msMatchMedia ? window.msMatchMedia('(min-width: 641px)') : window.matchMedia('(min-width: 641px)');
 
 			if (mql.matches) {
-				console.log('click');
 				for (var item of photos) {
 					item.addEventListener('click', that.clickHandler);
 				}
